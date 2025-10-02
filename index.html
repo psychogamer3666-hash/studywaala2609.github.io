@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>studywaala2609 — Study Smart, Achieve More</title>
+  <meta name="description" content="studywaala2609 - Your study planner for Physics, Chemistry, Mathematics & Biology. Track progress, schedule tasks, view analytics." />
+  <style>
+    :root{
+      --accent:#3b82f6;
+      --bg:#f7fbff;
+      --card:#ffffff;
+      --muted:#6b7280;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#fff);color:#0f172a;line-height:1.45}
+    header{background:linear-gradient(90deg,rgba(59,130,246,0.12),transparent);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:52px;height:52px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(59,130,246,0.18)
+    }
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+    .container{max-width:980px;margin:28px auto;padding:0 20px}
+    .hero{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);flex:1;min-width:280px}
+    h1{margin:0;font-size:26px}
+    .sub{color:var(--muted);margin-top:8px}
+    .button{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;margin-top:12px}
+    section{margin-top:18px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:880px){.grid{grid-template-columns:repeat(1,1fr)}}
+    ul{padding-left:18px}
+    footer{margin-top:30px;padding:20px 0;text-align:center;color:var(--muted)}
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .form-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    select,input,button,textarea{padding:8px;border-radius:8px;border:1px solid #e6eefb}
+    .pdf-placeholder{height:220px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#fff,#f9fafb);border:1px dashed #e2e8f0;color:var(--muted)}
+    .badge{display:inline-block;padding:6px 8px;border-radius:999px;background:#eef2ff;color:var(--accent);font-weight:700;font-size:12px}
+    .tasks-list{margin-top:12px}
+    .task{padding:10px;border-radius:8px;border:1px solid #f1f5f9;margin-bottom:8px;background:#fff;display:flex;justify-content:space-between;align-items:center}
+    .small-muted{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">S26</div>
+      <div>
+        <div style="font-weight:800">studywaala2609</div>
+        <div class="small muted">Path of focused study</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#support">Support</a>
+    </nav>
+  </header>
+
+  <main class="container" id="home">
+    <div class="hero">
+      <div class="card" style="flex:1.8">
+        <h1>Study Smart, Achieve More with studywaala2609</h1>
+        <p class="sub">Good morning, Scholar! Master Physics, Chemistry, Mathematics & Biology with our practical study planner.</p>
+        <div style="margin-top:12px">
+          <span class="badge">Track Progress</span>
+          <span class="badge" style="background:#fff;border:1px solid #e6eefb;color:var(--muted);margin-left:6px">Schedule Tasks</span>
+          <a href="#add-task" class="button">Add Study Task</a>
+        </div>
+
+        <section id="overview" style="margin-top:16px">
+          <h3 style="margin:0 0 8px 0">Welcome to Your Learning Journey!</h3>
+          <p class="muted small">Start your study plan, organize materials, schedule tasks, and track your progress with clarity.</p>
+          <ul>
+            <li>Track progress for Physics, Chemistry, Mathematics & Biology</li>
+            <li>Mark resources completed and visualize advancement</li>
+            <li>Schedule study tasks and view simple analytics</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="card" style="max-width:340px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="small-muted">Overall Progress</div>
+            <div style="font-size:22px;font-weight:800;margin-top:6px">0% <span class="small muted" style="font-weight:600">(start adding tasks)</span></div>
+          </div>
+          <div style="text-align:right">
+            <div class="small-muted">Month</div>
+            <div style="font-weight:700">September 2025</div>
+          </div>
+        </div>
+
+        <section style="margin-top:12px" id="add-task">
+          <div class="small-muted">Add Study Task</div>
+          <form id="task-form" onsubmit="return addTask(event)">
+            <div class="form-row">
+              <select id="subject" required>
+                <option value="">Select Subject</option>
+                <option>Physics</option>
+                <option>Chemistry</option>
+                <option>Mathematics</option>
+                <option>Biology</option>
+              </select>
+              <input id="chapter" placeholder="Chapter / Topic" required />
+            </div>
+            <div class="form-row">
+              <select id="resource">
+                <option>Short Notes</option>
+                <option>Long Notes</option>
+                <option>PYQ's</option>
+                <option>Formula Sheets</option>
+                <option>Mind Maps</option>
+              </select>
+              <input id="date" type="date" />
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button type="submit" class="button">Add Task</button>
+              <button type="button" onclick="clearTasks()" style="background:#fff;border:1px solid #e6eefb;padding:8px 12px;border-radius:8px">Clear</button>
+            </div>
+          </form>
+
+          <div class="tasks-list" id="tasks-list">
+            <div class="small-muted" style="margin-top:8px">No tasks yet — add one!</div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section id="about" class="card" style="margin-top:18px">
+      <h2>About studywaala2609</h2>
+      <p class="muted">studywaala2609 is designed to help students organize preparation effectively and visualize progress. Use it for focused study sessions, quick revision, and tracking milestones.</p>
+      <ul>
+        <li>Organize study materials by subject and chapter</li>
+        <li>Schedule tasks and mark completion</li>
+        <li>Simple analytics to keep you motivated</li>
+      </ul>
+    </section>
+
+    <section id="pdf" class="card" style="margin-top:12px">
+      <h3>PDF Viewer</h3>
+      <div class="pdf-placeholder" id="pdf-placeholder">
+        PDF cannot be displayed on this device — use Open in Browser or Download
+      </div>
+      <div style="margin-top:10px;display:flex;gap:10px">
+        <button onclick="openPDF()">Open in Browser</button>
+        <button onclick="downloadPDF()">Download PDF</button>
+      </div>
+    </section>
+
+    <section id="support" class="card" style="margin-top:12px">
+      <h3>Support & Contact</h3>
+      <p>If you need help, feedback, or want to contribute, drop an email:</p>
+      <div class="small-muted">Psychogamer3666@gmail.com</div>
+      <p style="margin-top:8px" class="muted small">Follow open-source projects on GitHub or reach out for collaboration.</p>
+      <div style="margin-top:8px">
+        <a href="https://github.com" target="_blank" class="small-muted">GitHub Profile</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>Created by Nirankar with his team ❣️</div>
+      <div style="margin-top:6px">© 2025 studywaala2609. All rights reserved.</div>
+    </footer>
+  </main>
+
+  <script>
+    const tasks = [];
+    const tasksList = document.getElementById('tasks-list');
+
+    function renderTasks(){
+      if(tasks.length === 0){
+        tasksList.innerHTML = '<div class="small-muted">No tasks yet — add one!</div>';
+        return;
+      }
+      tasksList.innerHTML = '';
+      tasks.slice().reverse().forEach((t, idx) => {
+        const el = document.createElement('div');
+        el.className = 'task';
+        el.innerHTML = `
+          <div>
+            <div style="font-weight:700">${t.subject} — ${t.chapter}</div>
+            <div class="small-muted">${t.resource} ${t.date ? ' • ' + t.date : ''}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button onclick="markDone(${idx})" style="padding:6px 8px;border-radius:8px;border:1px solid #e6eefb;background:#fff">Done</button>
+            <button onclick="deleteTask(${idx})" style="padding:6px 8px;border-radius:8px;border:1px solid #fee2e2;background:#fff">Delete</button>
+          </div>
+        `;
+        tasksList.appendChild(el);
+      });
+    }
+
+    function addTask(e){
+      e.preventDefault();
+      const subject = document.getElementById('subject').value;
+      const chapter = document.getElementById('chapter').value.trim();
+      const resource = document.getElementById('resource').value;
+      const date = document.getElementById('date').value;
+      if(!subject || !chapter) return alert('Select subject and enter chapter');
+      tasks.push({subject, chapter, resource, date, done:false});
+      document.getElementById('task-form').reset();
+      renderTasks();
+    }
+
+    function markDone(idx){
+      const realIdx = tasks.length - 1 - idx;
+      tasks[realIdx].done = !tasks[realIdx].done;
+      alert(tasks[realIdx].done ? 'Marked done' : 'Marked not done');
+      renderTasks();
+    }
+
+    function deleteTask(idx){
+      const realIdx = tasks.length - 1 - idx;
+      tasks.splice(realIdx,1);
+      renderTasks();
+    }
+
+    function clearTasks(){
+      if(confirm('Clear all tasks?')){
+        tasks.length = 0;
+        renderTasks();
+      }
+    }
+
+    function openPDF(){
+      alert('This demo does not host PDFs. Replace this with a real PDF URL or integrate a PDF viewer.');
+    }
+    function downloadPDF(){
+      alert('Download not configured. Add a link to your PDF file to enable download.');
+    }
+
+    renderTasks();
+  </script>
+</body>
+</html>
